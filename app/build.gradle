@@ -12,9 +12,14 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            resValue "string", "API_KEY","\"$androidTestingFacebookApiKey\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            resValue "string", "API_KEY","\"$androidTestingFacebookApiKey\""
         }
     }
 }
@@ -22,4 +27,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+
+    compile 'com.facebook.android:facebook-android-sdk:3.21.1'
 }
